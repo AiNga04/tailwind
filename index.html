@@ -1,119 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TailwindCSS</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-    <link rel="stylesheet" href="./build/tailwind.css" />
-    <link rel="stylesheet" href="./build/app.css" />
-  </head>
-  <!-- npx tailwindcss -i css/tailwind.css -o build/tailwind.css --watch -->
-  <body>
-    <label for="toggle" class="inline-block cursor-pointer toggle-switch">
-      <input
-        type="checkbox"
-        name=""
-        id="toggle"
-        class="darkmode-input hidden"
-      />
-      <div
-        class="
-          w-[100px]
-          h-[40px]
-          border border-[#ccc]
-          rounded-full
-          fixed
-          right-5
-          bottom-5
-          z-50
-          p-[5px]
-          transition-colors
-        "
-      >
-        <div
-          class="
-            w-7
-            h-7
-            bg-[#ccc]
-            rounded-full
-            transition-transform
-            darkmode-spinner
-          "
-        ></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TailwindCSS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./build/tailwind.css" />
+  <link rel="stylesheet" href="./build/app.css" />
+</head>
+<!-- npx tailwindcss -i css/tailwind.css -o build/tailwind.css --watch -->
+
+<body class="bg-gray-100">
+  <div class="container mx-auto px-custom-35 relative">
+    <!-- Header Section -->
+    <!-- Navbar -->
+    <div class="navbar sticky top-0 bg-[#f3f4f6] z-50">
+      <div class="flex justify-between items-center p-4">
+        <!-- Logo -->
+        <a href="#" class="text-2xl font-bold text-gray-800">Travel</a>
+
+        <!-- Menu for larger screens -->
+        <ul class="hidden md:flex items-center space-x-6">
+          <li><a href="#" class="text-gray-700 hover:text-gray-900">Destinations</a></li>
+          <li><a href="#" class="text-gray-700 hover:text-gray-900">Hotels</a></li>
+          <li><a href="#" class="text-gray-700 hover:text-gray-900">Flights</a></li>
+          <li><a href="#" class="text-gray-700 hover:text-gray-900">Bookings</a></li>
+        </ul>
+
+        <!-- Buttons -->
+        <div class="hidden md:flex space-x-4">
+          <button class="text-black px-4 py-2 rounded-lg hover:bg-gray-200 transition duration-300">Sign In</button>
+          <button class="text-black border border-black px-4 py-2 rounded-lg hover:bg-gray-200 transition duration-300">
+            Sign Up
+          </button>
+        </div>
+
+        <!-- Mobile menu toggle -->
+        <button id="menu-toggle" class="md:hidden text-gray-700">
+          <ion-icon name="menu-outline" size="large"></ion-icon>
+        </button>
       </div>
-    </label>
-    <div class="mx-auto max-w-[1200px] grid grid-cols-4 gap-x-5 p-5">
-      <div
-        class="
-          px-5
-          py-8
-          rounded-lg
-          border border-[#eee]
-          text-center
-          bg-white
-          dark:bg-[#0F0D58]
-        "
-      >
-        <img
-          src="https://free3dicon.com/wp-content/uploads/2021/09/compass_perspective_matte_s-2-300x300.png.webp"
-          alt=""
-          class="mb-5 max-w-[100px] mx-auto"
-        />
-        <h3 class="text-lg font-semibold mb-6 text-[#0F0D58] dark:text-white">
-          Recommendation
-        </h3>
-        <div
-          class="
-            text-sm
-            leading-loose
-            text-[#9191B4]
-            font-normal
-            dark:text-white
-          "
-        >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, odio,
-          facilis vero quod natus molestiae autem provident nam corporis sint
-          accusamus excepturi at in, temporibus architecto ad voluptatibus
-          maxime. Tenetur!
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden flex-col space-y-4 p-4 md:hidden bg-gray-100">
+        <a href="#" class="text-gray-700 hover:text-gray-900 block">Destinations</a>
+        <a href="#" class="text-gray-700 hover:text-gray-900 block">Hotels</a>
+        <a href="#" class="text-gray-700 hover:text-gray-900 block">Flights</a>
+        <a href="#" class="text-gray-700 hover:text-gray-900 block">Bookings</a>
+        <div class="flex flex-col gap-y-4">
+          <button class="text-black py-2 rounded-lg hover:bg-gray-200 transition duration-300">Sign
+            In</button>
+          <button class="text-black py-2 rounded-lg hover:bg-gray-200 transition duration-300 border border-black">Sign
+            Up</button>
         </div>
       </div>
     </div>
-    <script>
-      const toggleSwitch = document.querySelector(
-        '.toggle-switch input[type="checkbox"]'
-      );
-      const currentTheme = localStorage.getItem("theme");
-      if (currentTheme) {
-        document.documentElement.setAttribute("class", currentTheme);
-        if (currentTheme === "dark") {
-          toggleSwitch.checked = true;
-        }
-      }
-      function switchTheme(e) {
-        if (e.target.checked) {
-          document.documentElement.setAttribute("class", "dark");
-          localStorage.setItem("theme", "dark");
-        } else {
-          document.documentElement.setAttribute("class", "light");
-          localStorage.setItem("theme", "light");
-        }
-      }
-      toggleSwitch.addEventListener("change", switchTheme);
-    </script>
-  </body>
+
+    <!-- Content Section 1 -->
+    <div class="h-100vh">
+      <!-- Header Section -->
+      <div class="mt-2 mb-5 p-5 text-center">
+        <h1 class="text-lg sm:text-2xl md:text-3xl xl:text-4xl font-semibold text-custom-orange-fa">Live anywhere</h1>
+        <p class="text-gray-500 mt-2">Keep calm and travel on</p>
+      </div>
+
+      <!-- Cards Section -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto px-[10px] sm:px-[0px]">
+        <!-- Card 1 -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden">
+          <img src="./images/travel-5.jpg" alt="Travel Image" class="w-full h-96 object-cover">
+          <div class="p-4">
+            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
+            <p class="text-center text-gray-500 mt-2">6,888 booking</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden">
+          <img src="./images/travel-4.jpg" alt="Travel Image" class="w-full h-96 object-cover">
+          <div class="p-4">
+            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
+            <p class="text-center text-gray-500 mt-2">6,888 booking</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden">
+          <img src="./images/travel-3.jpg" alt="Travel Image" class="w-full h-96 object-cover">
+          <div class="p-4">
+            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
+            <p class="text-center text-gray-500 mt-2">6,888 booking</p>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden">
+          <img src="./images/travel-2.jpg" alt="Travel Image" class="w-full h-96 object-cover">
+          <div class="p-4">
+            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
+            <p class="text-center text-gray-500 mt-2">6,888 booking</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Section 1 -->
+    <div class="h-100vh p-5">
+      <!-- Header Section -->
+      <div class="mt-10 mb-5 p-5 text-center">
+        <p class="text-gray-500 mb-2">Categories</p>
+        <h2 class="font-semibold text-custom-orange-fa text-4xl">We Offer Best Services</h2>
+      </div>
+      <!-- Cards Section -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto px-[10px] sm:px-[0px]">
+        <!-- Card 1 -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden flex flex-col justify-center items-center pt-4">
+          <img src="./images/category-1.png" alt="Travel Image" class="block text-center w-28 h-28 object-cover">
+          <div class="p-4">
+            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
+            <p class="text-center text-gray-500 mt-2">Built Wicket longer admire do barton vanity itself do in it.</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden flex flex-col justify-center items-center pt-4">
+          <img src="./images/category-2.png" alt="Travel Image" class="block text-center w-28 h-28 object-cover">
+          <div class="p-4">
+            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
+            <p class="text-center text-gray-500 mt-2">Engrossed listening. Park gate sell they west hard for the.</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden flex flex-col justify-center items-center pt-4">
+          <img src="./images/category-3.png" alt="Travel Image" class="block text-center w-28 h-28 object-cover">
+          <div class="p-4">
+            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
+            <p class="text-center text-gray-500 mt-2">Barton vanity itself do in it. Preferd to men it engrossed
+              listening.</p>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden flex flex-col justify-center items-center pt-4">
+          <img src="./images/category-4.png" alt="Travel Image" class="block text-center w-28 h-28 object-cover">
+          <div class="p-4">
+            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
+            <p class="text-center text-gray-500 mt-2">We deliver outsourced aviation services for military customers</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Content Section 2 -->
+    <div class="h-100vh p-5">
+      <!-- left -->
+      <div>
+
+      </div>
+
+      <!-- right -->
+      <div>
+
+      </div>
+    </div>
+
+    <!-- button -->
+    <!-- <div before=""
+      class="w-10 h-10 flex justify-center items-center mt-10 text-[#ffab12] relative before:absolute before:inset-0 before:rounded-xl before:bg-current before:opacity-25">
+      <ion-icon name="notifications-outline"></ion-icon>
+    </div> -->
+  </div>
+
+  <script>
+    // Toggle mobile menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+
 </html>

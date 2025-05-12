@@ -5,11 +5,11 @@ module.exports = {
   theme: {
     extend: {
       spacing: {
-        35: "35px",
+        "custom-35": "35px",
       },
       colors: {
-        gray33: "#333",
-        orangefa: "#ffa400",
+        "custom-gray-33": "#333",
+        "custom-orange-fa": "#ffa400",
       },
     },
   },
