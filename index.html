@@ -5,177 +5,654 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TailwindCSS</title>
+  <title>Wanderlust - Travel & Explore</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
   <link rel="stylesheet" href="./build/tailwind.css" />
   <link rel="stylesheet" href="./build/app.css" />
 </head>
 <!-- npx tailwindcss -i css/tailwind.css -o build/tailwind.css --watch -->
 
-<body class="bg-gray-100">
-  <div class="container mx-auto px-custom-35 relative">
-    <!-- Header Section -->
-    <!-- Navbar -->
-    <div class="navbar sticky top-0 bg-[#f3f4f6] z-50">
-      <div class="flex justify-between items-center p-4">
-        <!-- Logo -->
-        <a href="#" class="text-2xl font-bold text-gray-800">Travel</a>
+<body class="bg-gray-50 font-[Poppins] text-gray-800">
+  <!-- Header Section -->
+  <!-- Navbar -->
+  <div class="navbar sticky top-0 bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+    <div class="flex justify-between items-center p-4 px-4 lg:px-20">
+      <!-- Logo -->
+      <a href="#" class="text-2xl font-bold text-yellow-500 flex items-center gap-2">
+        <ion-icon name="airplane" class="text-yellow-500"></ion-icon>
+        <span>Wanderlust</span>
+      </a>
 
-        <!-- Menu for larger screens -->
-        <ul class="hidden md:flex items-center space-x-6">
-          <li><a href="#" class="text-gray-700 hover:text-gray-900">Destinations</a></li>
-          <li><a href="#" class="text-gray-700 hover:text-gray-900">Hotels</a></li>
-          <li><a href="#" class="text-gray-700 hover:text-gray-900">Flights</a></li>
-          <li><a href="#" class="text-gray-700 hover:text-gray-900">Bookings</a></li>
-        </ul>
+      <!-- Menu for larger screens -->
+      <ul class="hidden lg:flex items-center space-x-8">
+        <li><a href="#destinations" class="text-gray-700 hover:text-yellow-500 transition duration-300">Destinations</a>
+        </li>
+        <li><a href="#services" class="text-gray-700 hover:text-yellow-500 transition duration-300">Services</a></li>
+        <li><a href="#booking" class="text-gray-700 hover:text-yellow-500 transition duration-300">Booking</a></li>
+        <li><a href="#testimonials" class="text-gray-700 hover:text-yellow-500 transition duration-300">Testimonials</a>
+        </li>
+      </ul>
 
-        <!-- Buttons -->
-        <div class="hidden md:flex space-x-4">
-          <button class="text-black px-4 py-2 rounded-lg hover:bg-gray-200 transition duration-300">Sign In</button>
-          <button class="text-black border border-black px-4 py-2 rounded-lg hover:bg-gray-200 transition duration-300">
-            Sign Up
-          </button>
-        </div>
-
-        <!-- Mobile menu toggle -->
-        <button id="menu-toggle" class="md:hidden text-gray-700">
-          <ion-icon name="menu-outline" size="large"></ion-icon>
+      <!-- Buttons -->
+      <div class="hidden md:flex space-x-4">
+        <button class="text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-100 transition duration-300">Sign In</button>
+        <button
+          class="bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-600 transition duration-300 shadow-md">
+          Sign Up
         </button>
       </div>
 
-      <!-- Mobile menu -->
-      <div id="mobile-menu" class="hidden flex-col space-y-4 p-4 md:hidden bg-gray-100">
-        <a href="#" class="text-gray-700 hover:text-gray-900 block">Destinations</a>
-        <a href="#" class="text-gray-700 hover:text-gray-900 block">Hotels</a>
-        <a href="#" class="text-gray-700 hover:text-gray-900 block">Flights</a>
-        <a href="#" class="text-gray-700 hover:text-gray-900 block">Bookings</a>
-        <div class="flex flex-col gap-y-4">
-          <button class="text-black py-2 rounded-lg hover:bg-gray-200 transition duration-300">Sign
-            In</button>
-          <button class="text-black py-2 rounded-lg hover:bg-gray-200 transition duration-300 border border-black">Sign
-            Up</button>
-        </div>
-      </div>
+      <!-- Mobile menu toggle -->
+      <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none">
+        <ion-icon name="menu-outline" size="large"></ion-icon>
+      </button>
     </div>
 
-    <!-- Content Section 1 -->
-    <div class="h-100vh">
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden flex-col space-y-4 p-4 md:hidden bg-white border-t border-gray-100">
+      <a href="#destinations"
+        class="text-gray-700 block hover:text-yellow-500 transition duration-300 py-2">Destinations</a>
+      <a href="#services" class="text-gray-700 block hover:text-yellow-500 transition duration-300 py-2">Services</a>
+      <a href="#booking" class="text-gray-700 block hover:text-yellow-500 transition duration-300 py-2">Booking</a>
+      <a href="#testimonials"
+        class="text-gray-700 block hover:text-yellow-500 transition duration-300 py-2">Testimonials</a>
+      <div class="flex flex-col gap-y-4 pt-2">
+        <button class="text-gray-700 py-2 rounded-lg hover:bg-gray-100 transition duration-300">Sign In</button>
+        <button class="bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition duration-300 shadow-md">
+          Sign Up
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Navbar -->
+  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 relative">
+    <!-- Hero Section -->
+    <div id="home" class="min-h-screen py-16 px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12">
+      <!-- Left Content -->
+      <div class="w-full lg:w-1/2 flex flex-col justify-center space-y-8">
+        <span class="text-yellow-500 font-semibold text-lg tracking-wide">BEST DESTINATIONS AROUND THE WORLD</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+          Travel, enjoy and live a new and full life
+        </h1>
+        <p class="text-gray-600 text-base leading-relaxed max-w-lg">
+          Discover amazing places at exclusive deals. Travel to the most iconic destinations with our premium services
+          and support throughout your journey.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center gap-6">
+          <!-- Button 1 -->
+          <button
+            class="w-full sm:w-auto px-8 py-4 bg-yellow-500 text-white font-medium rounded-lg shadow-lg hover:bg-yellow-600 transition duration-300 flex items-center justify-center gap-2">
+            <span>Explore Now</span>
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </button>
+          <!-- Button 2 -->
+          <div class="flex items-center space-x-3 group cursor-pointer">
+            <div
+              class="w-12 h-12 flex justify-center items-center text-yellow-500 bg-yellow-100 rounded-full shadow-md group-hover:bg-yellow-500 group-hover:text-white transition duration-300">
+              <ion-icon name="play-outline" size="small"></ion-icon>
+            </div>
+            <span class="text-gray-800 font-medium group-hover:text-yellow-500 transition duration-300">Watch
+              Demo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Content -->
+      <div class="w-full lg:w-1/2 relative">
+        <div class="absolute -top-10 -left-10 w-32 h-32 bg-yellow-500/20 rounded-full blur-2xl"></div>
+        <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"></div>
+        <img src="./images/trippng.png" alt="Travel Image" class="w-full h-auto object-cover rounded-2xl relative z-10">
+      </div>
+    </div>
+    <!-- End Hero Section -->
+
+    <!-- Destinations Section -->
+    <div id="destinations" class="py-20">
       <!-- Header Section -->
-      <div class="mt-2 mb-5 p-5 text-center">
-        <h1 class="text-lg sm:text-2xl md:text-3xl xl:text-4xl font-semibold text-custom-orange-fa">Live anywhere</h1>
-        <p class="text-gray-500 mt-2">Keep calm and travel on</p>
+      <div class="mb-16 text-center">
+        <span class="text-yellow-500 font-medium">TOP DESTINATIONS</span>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-2">Explore Our Popular Destinations</h2>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Discover breathtaking locations that will make your journey
+          unforgettable. From serene beaches to majestic mountains.</p>
       </div>
 
       <!-- Cards Section -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto px-[10px] sm:px-[0px]">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Card 1 -->
-        <div class="bg-white shadow-lg rounded-xl overflow-hidden">
-          <img src="./images/travel-5.jpg" alt="Travel Image" class="w-full h-96 object-cover">
-          <div class="p-4">
-            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
-            <p class="text-center text-gray-500 mt-2">6,888 booking</p>
+        <div
+          class="bg-white rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+          <div class="relative">
+            <img src="./images/travel-6.jpg" alt="Bali, Indonesia" class="w-full h-64 object-cover">
+            <div
+              class="absolute top-4 right-4 bg-white/80 backdrop-blur-sm rounded-lg px-3 py-1 text-sm font-medium text-yellow-600">
+              4.9 ★
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-semibold text-xl group-hover:text-yellow-500 transition duration-300">Bali, Indonesia</h3>
+              <span class="text-yellow-500 font-bold">$899</span>
+            </div>
+            <div class="flex items-center text-gray-500 text-sm mb-4">
+              <ion-icon name="location-outline"></ion-icon>
+              <span class="ml-1">10 days trip</span>
+            </div>
+            <p class="text-gray-600 mb-4">Experience the perfect blend of beaches, culture and adventure.</p>
+            <div class="flex justify-between items-center">
+              <span class="text-gray-500 text-sm">6,500+ bookings</span>
+              <button class="text-yellow-500 hover:text-yellow-600">
+                <ion-icon name="arrow-forward-circle-outline" size="large"></ion-icon>
+              </button>
+            </div>
           </div>
         </div>
+
         <!-- Card 2 -->
-        <div class="bg-white shadow-lg rounded-xl overflow-hidden">
-          <img src="./images/travel-4.jpg" alt="Travel Image" class="w-full h-96 object-cover">
-          <div class="p-4">
-            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
-            <p class="text-center text-gray-500 mt-2">6,888 booking</p>
+        <div
+          class="bg-white rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+          <div class="relative">
+            <img src="./images/travel-7.jpg" alt="Santorini, Greece" class="w-full h-64 object-cover">
+            <div
+              class="absolute top-4 right-4 bg-white/80 backdrop-blur-sm rounded-lg px-3 py-1 text-sm font-medium text-yellow-600">
+              4.8 ★
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-semibold text-xl group-hover:text-yellow-500 transition duration-300">Santorini, Greece
+              </h3>
+              <span class="text-yellow-500 font-bold">$1,199</span>
+            </div>
+            <div class="flex items-center text-gray-500 text-sm mb-4">
+              <ion-icon name="location-outline"></ion-icon>
+              <span class="ml-1">7 days trip</span>
+            </div>
+            <p class="text-gray-600 mb-4">Discover the iconic white buildings and breathtaking sunsets.</p>
+            <div class="flex justify-between items-center">
+              <span class="text-gray-500 text-sm">8,200+ bookings</span>
+              <button class="text-yellow-500 hover:text-yellow-600">
+                <ion-icon name="arrow-forward-circle-outline" size="large"></ion-icon>
+              </button>
+            </div>
           </div>
         </div>
+
         <!-- Card 3 -->
-        <div class="bg-white shadow-lg rounded-xl overflow-hidden">
-          <img src="./images/travel-3.jpg" alt="Travel Image" class="w-full h-96 object-cover">
-          <div class="p-4">
-            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
-            <p class="text-center text-gray-500 mt-2">6,888 booking</p>
+        <div
+          class="bg-white rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+          <div class="relative">
+            <img src="./images/travel-8.jpg" alt="Kyoto, Japan" class="w-full h-64 object-cover">
+            <div
+              class="absolute top-4 right-4 bg-white/80 backdrop-blur-sm rounded-lg px-3 py-1 text-sm font-medium text-yellow-600">
+              4.7 ★
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-semibold text-xl group-hover:text-yellow-500 transition duration-300">Kyoto, Japan</h3>
+              <span class="text-yellow-500 font-bold">$1,499</span>
+            </div>
+            <div class="flex items-center text-gray-500 text-sm mb-4">
+              <ion-icon name="location-outline"></ion-icon>
+              <span class="ml-1">12 days trip</span>
+            </div>
+            <p class="text-gray-600 mb-4">Immerse yourself in ancient temples and beautiful gardens.</p>
+            <div class="flex justify-between items-center">
+              <span class="text-gray-500 text-sm">5,800+ bookings</span>
+              <button class="text-yellow-500 hover:text-yellow-600">
+                <ion-icon name="arrow-forward-circle-outline" size="large"></ion-icon>
+              </button>
+            </div>
           </div>
         </div>
+
         <!-- Card 4 -->
-        <div class="bg-white shadow-lg rounded-xl overflow-hidden">
-          <img src="./images/travel-2.jpg" alt="Travel Image" class="w-full h-96 object-cover">
-          <div class="p-4">
-            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
-            <p class="text-center text-gray-500 mt-2">6,888 booking</p>
+        <div
+          class="bg-white rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+          <div class="relative">
+            <img src="./images/travel-9.jpg" alt="Machu Picchu, Peru" class="w-full h-64 object-cover">
+            <div
+              class="absolute top-4 right-4 bg-white/80 backdrop-blur-sm rounded-lg px-3 py-1 text-sm font-medium text-yellow-600">
+              4.9 ★
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-semibold text-xl group-hover:text-yellow-500 transition duration-300">Machu Picchu, Peru
+              </h3>
+              <span class="text-yellow-500 font-bold">$1,299</span>
+            </div>
+            <div class="flex items-center text-gray-500 text-sm mb-4">
+              <ion-icon name="location-outline"></ion-icon>
+              <span class="ml-1">9 days trip</span>
+            </div>
+            <p class="text-gray-600 mb-4">Explore the ancient Incan citadel set high in the Andes Mountains.</p>
+            <div class="flex justify-between items-center">
+              <span class="text-gray-500 text-sm">4,900+ bookings</span>
+              <button class="text-yellow-500 hover:text-yellow-600">
+                <ion-icon name="arrow-forward-circle-outline" size="large"></ion-icon>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Content Section 1 -->
-    <div class="h-100vh p-5">
+      <!-- View All Button -->
+      <div class="text-center mt-12">
+        <button
+          class="px-8 py-3 border-2 border-yellow-500 text-yellow-500 font-medium rounded-lg hover:bg-yellow-500 hover:text-white transition duration-300">
+          View All Destinations
+        </button>
+      </div>
+    </div>
+    <!-- End Destinations Section -->
+
+    <!-- Services Section -->
+    <div id="services" class="py-20 bg-gray-50">
       <!-- Header Section -->
-      <div class="mt-10 mb-5 p-5 text-center">
-        <p class="text-gray-500 mb-2">Categories</p>
-        <h2 class="font-semibold text-custom-orange-fa text-4xl">We Offer Best Services</h2>
+      <div class="mb-16 text-center">
+        <span class="text-yellow-500 font-medium">OUR SERVICES</span>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-2">We Offer Best Services</h2>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Tailored travel experiences designed to make your journey
+          seamless
+          and memorable from start to finish.</p>
       </div>
+
       <!-- Cards Section -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto px-[10px] sm:px-[0px]">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         <!-- Card 1 -->
-        <div class="bg-white shadow-lg rounded-xl overflow-hidden flex flex-col justify-center items-center pt-4">
-          <img src="./images/category-1.png" alt="Travel Image" class="block text-center w-28 h-28 object-cover">
-          <div class="p-4">
-            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
-            <p class="text-center text-gray-500 mt-2">Built Wicket longer admire do barton vanity itself do in it.</p>
+        <div
+          class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 flex flex-col items-center text-center group">
+          <div class="w-20 h-20 mb-6 transition-transform duration-500 group-hover:scale-110">
+            <img src="./images/category-1.png" alt="Calculated Weather" class="w-full h-full object-contain">
           </div>
+          <h3 class="text-xl font-semibold mb-4 group-hover:text-yellow-500 transition duration-300">Calculated Weather
+          </h3>
+          <p class="text-gray-600">Built-in weather prediction ensures your trip is planned around ideal weather
+            conditions.
+          </p>
         </div>
+
         <!-- Card 2 -->
-        <div class="bg-white shadow-lg rounded-xl overflow-hidden flex flex-col justify-center items-center pt-4">
-          <img src="./images/category-2.png" alt="Travel Image" class="block text-center w-28 h-28 object-cover">
-          <div class="p-4">
-            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
-            <p class="text-center text-gray-500 mt-2">Engrossed listening. Park gate sell they west hard for the.</p>
+        <div
+          class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 flex flex-col items-center text-center group">
+          <div class="w-20 h-20 mb-6 transition-transform duration-500 group-hover:scale-110">
+            <img src="./images/category-2.png" alt="Best Flights" class="w-full h-full object-contain">
           </div>
+          <h3 class="text-xl font-semibold mb-4 group-hover:text-yellow-500 transition duration-300">Best Flights</h3>
+          <p class="text-gray-600">We compare and offer you the most convenient and affordable flight options available.
+          </p>
         </div>
+
         <!-- Card 3 -->
-        <div class="bg-white shadow-lg rounded-xl overflow-hidden flex flex-col justify-center items-center pt-4">
-          <img src="./images/category-3.png" alt="Travel Image" class="block text-center w-28 h-28 object-cover">
-          <div class="p-4">
-            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
-            <p class="text-center text-gray-500 mt-2">Barton vanity itself do in it. Preferd to men it engrossed
-              listening.</p>
+        <div
+          class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 flex flex-col items-center text-center group">
+          <div class="w-20 h-20 mb-6 transition-transform duration-500 group-hover:scale-110">
+            <img src="./images/category-3.png" alt="Local Events" class="w-full h-full object-contain">
           </div>
+          <h3 class="text-xl font-semibold mb-4 group-hover:text-yellow-500 transition duration-300">Local Events</h3>
+          <p class="text-gray-600">Immerse yourself in local culture with our curated selection of authentic local
+            events.
+          </p>
         </div>
+
         <!-- Card 4 -->
-        <div class="bg-white shadow-lg rounded-xl overflow-hidden flex flex-col justify-center items-center pt-4">
-          <img src="./images/category-4.png" alt="Travel Image" class="block text-center w-28 h-28 object-cover">
-          <div class="p-4">
-            <h2 class="text-center font-medium text-xl text-gray-800">Enjoy the great cold</h2>
-            <p class="text-center text-gray-500 mt-2">We deliver outsourced aviation services for military customers</p>
+        <div
+          class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 flex flex-col items-center text-center group">
+          <div class="w-20 h-20 mb-6 transition-transform duration-500 group-hover:scale-110">
+            <img src="./images/category-4.png" alt="Customization" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-xl font-semibold mb-4 group-hover:text-yellow-500 transition duration-300">Customization</h3>
+          <p class="text-gray-600">Tailor your trip exactly to your preferences with our flexible customization options.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- End Services Section -->
+
+    <!-- Booking Section -->
+    <div id="booking" class="py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row gap-16 items-center">
+          <!-- Left Section -->
+          <div class="w-full lg:w-1/2 space-y-8">
+            <span class="text-yellow-500 font-medium">EASY AND FAST</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-800">
+              Book your next trip in 3 easy steps
+            </h2>
+            <div class="space-y-8">
+              <!-- Step 1 -->
+              <div
+                class="flex items-start space-x-6 p-4 rounded-lg hover:bg-white hover:shadow-md transition duration-300">
+                <div
+                  class="w-14 h-14 flex justify-center items-center text-yellow-500 bg-yellow-100 rounded-xl shadow-sm flex-shrink-0">
+                  <ion-icon name="search-outline" size="large"></ion-icon>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800 mb-2">Choose Destination</h3>
+                  <p class="text-gray-600">
+                    Browse through our curated selection of stunning destinations worldwide and find your perfect
+                    getaway.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div
+                class="flex items-start space-x-6 p-4 rounded-lg hover:bg-white hover:shadow-md transition duration-300">
+                <div
+                  class="w-14 h-14 flex justify-center items-center text-yellow-500 bg-yellow-100 rounded-xl shadow-sm flex-shrink-0">
+                  <ion-icon name="card-outline" size="large"></ion-icon>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800 mb-2">Make Payment</h3>
+                  <p class="text-gray-600">
+                    Secure and flexible payment options available. Pay in full or choose our convenient installment
+                    plans.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div
+                class="flex items-start space-x-6 p-4 rounded-lg hover:bg-white hover:shadow-md transition duration-300">
+                <div
+                  class="w-14 h-14 flex justify-center items-center text-yellow-500 bg-yellow-100 rounded-xl shadow-sm flex-shrink-0">
+                  <ion-icon name="airplane-outline" size="large"></ion-icon>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800 mb-2">Enjoy Your Trip</h3>
+                  <p class="text-gray-600">
+                    Relax and enjoy your journey with our 24/7 travel support. We handle all the details so you don't
+                    have
+                    to.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Section -->
+          <div class="w-full lg:w-1/2 flex justify-center">
+            <div class="relative">
+              <!-- Background decorations -->
+              <div class="absolute -top-6 -right-6 w-32 h-32 bg-yellow-500/10 rounded-full"></div>
+              <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-500/10 rounded-full"></div>
+
+              <!-- Trip Card -->
+              <div
+                class="bg-white p-6 rounded-2xl shadow-xl max-w-md relative z-10 transform transition duration-500 hover:scale-105">
+                <img src="./images/travel-5.jpg" alt="Trip to Greece"
+                  class="w-full h-64 object-cover rounded-xl shadow-md">
+                <div class="p-4 space-y-4">
+                  <h3 class="text-xl font-bold text-gray-800">Trip To Greece</h3>
+                  <div class="flex justify-between items-center text-gray-600 text-sm">
+                    <span>14-29 June</span>
+                    <span class="flex items-center gap-1">
+                      <ion-icon name="person-outline"></ion-icon>
+                      by Robbin Joseph
+                    </span>
+                  </div>
+
+                  <div class="flex space-x-3">
+                    <div
+                      class="w-8 h-8 flex justify-center items-center text-yellow-500 bg-yellow-100 rounded-full shadow-sm">
+                      <ion-icon name="leaf-outline"></ion-icon>
+                    </div>
+                    <div
+                      class="w-8 h-8 flex justify-center items-center text-yellow-500 bg-yellow-100 rounded-full shadow-sm">
+                      <ion-icon name="map-outline"></ion-icon>
+                    </div>
+                    <div
+                      class="w-8 h-8 flex justify-center items-center text-yellow-500 bg-yellow-100 rounded-full shadow-sm">
+                      <ion-icon name="send-outline"></ion-icon>
+                    </div>
+                  </div>
+
+                  <div class="flex justify-between items-center">
+                    <p class="text-gray-600 text-sm flex items-center gap-2">
+                      <ion-icon name="people-outline"></ion-icon>
+                      <span>24 people going</span>
+                    </p>
+                    <button class="text-yellow-500 hover:text-yellow-600 transition duration-300">
+                      <ion-icon name="heart-outline" size="large"></ion-icon>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Floating Notification -->
+                <div
+                  class="absolute -bottom-12 -left-12 bg-white p-4 rounded-xl shadow-lg flex items-center gap-3 max-w-xs">
+                  <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <ion-icon name="checkmark-circle" class="text-yellow-500 text-xl"></ion-icon>
+                  </div>
+                  <div>
+                    <p class="text-sm font-medium">Ongoing Trip</p>
+                    <p class="text-xs text-gray-500">40% completed</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
+    <!-- End Booking Section -->
 
-    <!-- Content Section 2 -->
-    <div class="h-100vh p-5">
-      <!-- left -->
-      <div>
+    <!-- Testimonials Section -->
+    <div id="testimonials" class="py-20 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="mb-16 text-center">
+          <span class="text-yellow-500 font-medium">TESTIMONIALS</span>
+          <h2 class="text-3xl sm:text-4xl font-bold mt-2">What Our Customers Say</h2>
+          <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Hear from travelers who have experienced our services and
+            created
+            unforgettable memories.</p>
+        </div>
 
-      </div>
+        <!-- Testimonials Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+            <div class="flex items-center mb-4">
+              <div class="text-yellow-500 flex">
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+              </div>
+              <span class="ml-2 text-gray-600">5.0</span>
+            </div>
+            <p class="text-gray-700 mb-6">"The trip to Bali was absolutely amazing! Everything was well organized, from
+              the
+              flights to the accommodations. The local guide was knowledgeable and friendly."</p>
+            <div class="flex items-center">
+              <img src="./images/32.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="font-semibold">Sarah Johnson</h4>
+                <p class="text-sm text-gray-600">New York, USA</p>
+              </div>
+            </div>
+          </div>
 
-      <!-- right -->
-      <div>
+          <!-- Testimonial 2 -->
+          <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+            <div class="flex items-center mb-4">
+              <div class="text-yellow-500 flex">
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star-half"></ion-icon>
+              </div>
+              <span class="ml-2 text-gray-600">4.5</span>
+            </div>
+            <p class="text-gray-700 mb-6">"Our family trip to Japan was perfect! The customized itinerary allowed us to
+              experience both traditional culture and modern attractions. Will definitely book again!"</p>
+            <div class="flex items-center">
+              <img src="./images/45.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="font-semibold">Michael Chen</h4>
+                <p class="text-sm text-gray-600">Toronto, Canada</p>
+              </div>
+            </div>
+          </div>
 
+          <!-- Testimonial 3 -->
+          <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+            <div class="flex items-center mb-4">
+              <div class="text-yellow-500 flex">
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+              </div>
+              <span class="ml-2 text-gray-600">5.0</span>
+            </div>
+            <p class="text-gray-700 mb-6">"The Greece tour exceeded all my expectations! The accommodations were
+              luxurious, and the
+              itinerary was perfectly balanced between sightseeing and relaxation. Worth every penny!"</p>
+            <div class="flex items-center">
+              <img src="./images/68.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="font-semibold">Emma Rodriguez</h4>
+                <p class="text-sm text-gray-600">London, UK</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View More Button -->
+        <div class="text-center mt-12">
+          <button
+            class="px-8 py-3 border-2 border-yellow-500 text-yellow-500 font-medium rounded-lg hover:bg-yellow-500 hover:text-white transition duration-300">
+            View All Reviews
+          </button>
+        </div>
       </div>
     </div>
+    <!-- End Testimonials Section -->
 
-    <!-- button -->
-    <!-- <div before=""
-      class="w-10 h-10 flex justify-center items-center mt-10 text-[#ffab12] relative before:absolute before:inset-0 before:rounded-xl before:bg-current before:opacity-25">
-      <ion-icon name="notifications-outline"></ion-icon>
-    </div> -->
+    <!-- Subscribe Section -->
+    <div class="py-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-32 h-32 bg-yellow-500/10 rounded-full -translate-x-1/2 -translate-y-1/2">
+        </div>
+        <div class="absolute bottom-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full translate-x-1/2 translate-y-1/2">
+        </div>
+
+        <!-- Content Container -->
+        <div
+          class="bg-gradient-to-r from-blue-500/10 to-yellow-500/10 rounded-3xl p-12 text-center relative overflow-hidden">
+          <div
+            class="absolute top-0 right-0 w-64 h-64 bg-yellow-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
+          </div>
+          <div
+            class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2">
+          </div>
+
+          <div class="relative z-10">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6">Subscribe to get information, latest news and other
+              interesting
+              offers about Wanderlust</h2>
+
+            <div class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto mt-10">
+              <div class="flex-grow relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <ion-icon name="mail-outline" class="text-gray-400"></ion-icon>
+                </div>
+                <input type="email" placeholder="Your email address"
+                  class="w-full pl-12 pr-4 py-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
+              </div>
+              <button
+                class="bg-yellow-500 text-white px-8 py-4 rounded-lg hover:bg-yellow-600 transition duration-300 shadow-md flex-shrink-0">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Subscribe Section -->
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 pt-20 pb-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+          <!-- Company Info -->
+          <div class="lg:col-span-2">
+            <a href="#" class="text-2xl font-bold text-yellow-500 flex items-center gap-2 mb-6">
+              <ion-icon name="airplane"></ion-icon>
+              <span>Wanderlust</span>
+            </a>
+            <p class="text-gray-600 mb-6">Book your trip in minutes, get full control for much longer.</p>
+            <div class="flex space-x-4">
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-yellow-500 hover:bg-yellow-500 hover:text-white transition duration-300">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-yellow-500 hover:bg-yellow-500 hover:text-white transition duration-300">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-yellow-500 hover:bg-yellow-500 hover:text-white transition duration-300">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </div>
+          </div>
+
+          <!-- Links -->
+          <div>
+            <h3 class="font-bold text-lg mb-6">Company</h3>
+            <ul class="space-y-4">
+              <li><a href="#" class="text-gray-600 hover:text-yellow-500 transition duration-300">About</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-yellow-500 transition duration-300">Careers</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-yellow-500 transition duration-300">Mobile</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-lg mb-6">Contact</h3>
+            <ul class="space-y-4">
+              <li><a href="#" class="text-gray-600 hover:text-yellow-500 transition duration-300">Help/FAQ</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-yellow-500 transition duration-300">Press</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-yellow-500 transition duration-300">Partners</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-lg mb-6">More</h3>
+            <ul class="space-y-4">
+              <li><a href="#" class="text-gray-600 hover:text-yellow-500 transition duration-300">Destinations</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-yellow-500 transition duration-300">Blog</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-yellow-500 transition duration-300">Sustainability</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-200 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-600 text-sm">© 2025 Ái Nga. All rights reserved.</p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a href="#" class="text-gray-600 hover:text-yellow-500 text-sm">Terms of Service</a>
+            <a href="#" class="text-gray-600 hover:text-yellow-500 text-sm">Privacy Policy</a>
+            <a href="#" class="text-gray-600 hover:text-yellow-500 text-sm">Cookie Settings</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
   </div>
 
   <script>
@@ -185,6 +662,39 @@
 
     menuToggle.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80, // Offset for fixed header
+            behavior: 'smooth'
+          });
+
+          // Close mobile menu if open
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+          }
+        }
+      });
+    });
+
+    // Add scroll event for navbar styling
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-md');
+      } else {
+        navbar.classList.remove('shadow-md');
+      }
     });
   </script>
 </body>
